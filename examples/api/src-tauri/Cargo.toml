@@ -1,0 +1,15 @@
+[package]
+name = "tauri-plugin-power-monitor-example"
+version = "0.1.0"
+description = "Manual verification app for the Tauri Power Monitor community plugin."
+edition = "2021"
+publish = false
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-power-monitor = { path = "../../.." }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"

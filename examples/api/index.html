@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Power Monitor Example — Tauri</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      }
+      body {
+        margin: 0;
+        padding: 2rem;
+        background: #09090b;
+        color: #fafafa;
+        max-width: 48rem;
+      }
+      h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.25rem;
+      }
+      p.subtitle {
+        color: #a1a1aa;
+        margin-top: 0;
+      }
+      section {
+        margin: 2rem 0;
+      }
+      h2 {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #10b981;
+        margin-bottom: 0.75rem;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      td {
+        padding: 0.35rem 0.75rem 0.35rem 0;
+        border-bottom: 1px solid #27272a;
+        white-space: pre-wrap;
+      }
+      td:first-child {
+        color: #a1a1aa;
+        width: 9rem;
+      }
+      #log {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        max-height: 16rem;
+        overflow-y: auto;
+        border: 1px solid #27272a;
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+      }
+      #log li {
+        padding: 0.25rem 0;
+        border-bottom: 1px solid #18181b;
+        font-family: ui-monospace, monospace;
+        font-size: 0.8rem;
+      }
+      #log li span.time {
+        color: #52525b;
+        margin-right: 0.5rem;
+      }
+      #log .source-changed { color: #34d399; }
+      #log .battery-changed { color: #fbbf24; }
+      #log .suspend, #log .resume { color: #d4d4d8; }
+      button {
+        background: #18181b;
+        color: #fafafa;
+        border: 1px solid #3f3f46;
+        border-radius: 0.375rem;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+      }
+      button:hover { background: #27272a; }
+    </style>
+  </head>
+  <body>
+    <h1>Tauri Power Monitor</h1>
+    <p class="subtitle">
+      Manual verification app: unplug your charger, change the battery, or suspend and
+      resume the system, and watch the live state and events below.
+    </p>
+
+    <section>
+      <h2>Power state</h2>
+      <table>
+        <tbody>
+          <tr><td>Power source</td><td id="power-source">…</td></tr>
+          <tr><td>Battery</td><td id="battery-percentage">…</td></tr>
+          <tr><td>Charging</td><td id="battery-charging">…</td></tr>
+          <tr><td>Battery present</td><td id="battery-present">…</td></tr>
+          <tr><td>Time to empty</td><td id="time-to-empty">…</td></tr>
+          <tr><td>Time to full</td><td id="time-to-full">…</td></tr>
+        </tbody>
+      </table>
+      <p>
+        <button id="refresh">Refresh getPowerState()</button>
+      </p>
+    </section>
+
+    <section>
+      <h2>Events</h2>
+      <ul id="log"></ul>
+    </section>
+
+    <script src="dist/main.js"></script>
+  </body>
+</html>

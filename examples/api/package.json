@@ -1,0 +1,17 @@
+{
+  "name": "tauri-plugin-power-monitor-example",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/main.ts --bundle --outfile=dist/main.js --format=iife",
+    "dev": "esbuild src/main.ts --bundle --outfile=dist/main.js --format=iife --watch"
+  },
+  "dependencies": {
+    "@marrionesa/plugin-power-monitor": "file:../..",
+    "@tauri-apps/api": "2.11.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.1"
+  }
+}

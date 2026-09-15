@@ -1,0 +1,52 @@
+[package]
+name = "tauri-plugin-power-monitor"
+version = "0.1.0"
+description = "Monitor battery, power source, and system sleep/wake events in your Tauri application."
+edition = "2021"
+rust-version = "1.88"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/marrionesa/tauri-plugin-power-monitor"
+links = "tauri-plugin-power-monitor"
+exclude = ["/guest-js", "/package.json", "/rollup.config.js", "/tsconfig.json", "/examples", "/target", "/node_modules", "/.github", "/*.log", "/.env*"]
+
+[package.metadata.platforms.support]
+windows = { level = "full", notes = "" }
+linux = { level = "full", notes = "Suspend/resume events require systemd-logind. Queries fall back to /sys/class/power_supply when UPower or D-Bus is unavailable." }
+macos = { level = "full", notes = "" }
+android = { level = "none", notes = "" }
+ios = { level = "none", notes = "" }
+
+[build-dependencies]
+tauri-plugin = { version = "2", features = ["build"] }
+
+[dependencies]
+log = "0.4"
+serde = { version = "1", features = ["derive"] }
+thiserror = "2"
+tauri = { version = "2", default-features = false }
+
+[target."cfg(target_os = \"windows\")".dependencies]
+windows = { version = "0.62", features = [
+  "Win32_Foundation",
+  "Win32_Graphics_Gdi",
+  "Win32_System_LibraryLoader",
+  "Win32_System_Power",
+  "Win32_System_SystemServices",
+  "Win32_System_Threading",
+  "Win32_UI_WindowsAndMessaging",
+] }
+
+[target."cfg(target_os = \"macos\")".dependencies]
+core-foundation = "0.10"
+
+[target."cfg(target_os = \"linux\")".dependencies]
+async-io = "2"
+event-listener = "5"
+futures-util = { version = "0.3", default-features = false, features = [
+  "async-await-macro",
+  "std",
+] }
+zbus = "5"
+
+[dev-dependencies]
+serde_json = "1"

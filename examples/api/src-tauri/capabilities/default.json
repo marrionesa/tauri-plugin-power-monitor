@@ -1,0 +1,10 @@
+{
+  "$schema": "./schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Capability for the main window of the power monitor example.",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "power-monitor:default"
+  ]
+}

@@ -1,0 +1,18 @@
+# Target
+/target/
+
+# Node
+node_modules/
+
+# Example app frontend build
+dist/
+examples/api/dist/
+examples/api/src-tauri/gen/
+examples/api/src-tauri/target/
+coverage/
+
+# Generated during local development only
+*.log
+.env
+.env.*
+.DS_Store

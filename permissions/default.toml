@@ -1,0 +1,12 @@
+"$schema" = "schemas/schema.json"
+
+[default]
+description = """
+Allows reading the system power state (power source and battery
+information) through the get_power_state command.
+
+This plugin only observes the system; it never controls power, so the
+default permission set exposes the read-only query and nothing else.
+"""
+
+permissions = ["allow-get-power-state"]
