@@ -1,5 +1,11 @@
 # Tauri Power Monitor
 
+[![CI](https://github.com/marrionesa/tauri-plugin-power-monitor/actions/workflows/ci.yml/badge.svg)](https://github.com/marrionesa/tauri-plugin-power-monitor/actions/workflows/ci.yml)
+[![crates.io](https://img.shields.io/crates/v/tauri-plugin-power-monitor.svg)](https://crates.io/crates/tauri-plugin-power-monitor)
+[![docs.rs](https://img.shields.io/docsrs/tauri-plugin-power-monitor)](https://docs.rs/tauri-plugin-power-monitor)
+[![npm](https://img.shields.io/npm/v/@marrionesa/plugin-power-monitor.svg)](https://www.npmjs.com/package/@marrionesa/plugin-power-monitor)
+[![License](https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-blue.svg)](#license)
+
 A Tauri 2 plugin for monitoring battery state, charging, power source, and system suspend/resume events across Windows, macOS, and Linux.
 
 This is a desktop-only, read-only monitor. It never shuts down, reboots, hibernates, puts the system to sleep, prevents sleep, or changes power policies.
@@ -32,9 +38,7 @@ fn main() {
 
 During local development, the example app uses the package from the repository with a local `file:../..` dependency.
 
-The current dependency set requires Rust 1.88 or newer. Tauri 2 itself supports
-older Rust versions, but the Linux D-Bus and platform dependency graph used by
-this release has a higher MSRV.
+The current dependency set requires Rust 1.88 or newer. Tauri 2 itself supports older Rust versions, but the Linux D-Bus and platform dependency graph used by this release has a higher MSRV.
 
 ## JavaScript API
 
@@ -128,7 +132,7 @@ The example frontend is static and uses esbuild. It is served by Tauri with `fro
 
 ## Community status
 
-This is an open-source community plugin for Tauri 2. It is not currently part of the official Tauri plugins and is not listed in Awesome Tauri. The project is prepared for distribution through npm and crates.io, with a later goal of proposing it as a community resource in Awesome Tauri.
+This is an open-source community plugin for Tauri 2. It is proposed for inclusion in [Awesome Tauri](https://github.com/tauri-apps/awesome-tauri). The project is distributed through npm and crates.io.
 
 Repository: https://github.com/marrionesa/tauri-plugin-power-monitor
 
